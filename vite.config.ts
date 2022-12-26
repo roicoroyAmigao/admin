@@ -1,4 +1,5 @@
 import path from "path"
+// eslint-disable-next-line no-unused-vars
 import { env } from "process"
 import dns from "dns"
 import { defineConfig } from "vite"
@@ -25,13 +26,7 @@ export default defineConfig({
     },
   },
   define: {
-    __MEDUSA_BACKEND_URL__: JSON.stringify(
-      env.MEDUSA_BACKEND_URL ||
-        // Backwards-compat with Gatsby.
-        env.GATSBY_MEDUSA_BACKEND_URL ||
-        env.GATSBY_STORE_URL ||
-        ""
-    ),
+    __MEDUSA_BACKEND_URL__: JSON.stringify("http://localhost:9000"),
   },
   optimizeDeps: {
     exclude: ["typeorm", "medusa-interfaces"],
